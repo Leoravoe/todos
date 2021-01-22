@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import List from './List';
+
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -26,14 +29,19 @@ class Home extends Component {
     }
     render() { 
         return ( 
+            <div className="formforadding">
             <form onSubmit={this.addItem}>
                 <input ref = {a =>{ this.input=a}}
                 type="text"/>
                 <button type="submit">
                     Add
                 </button>
-            </form>
-         );
+            </form>    
+                <List entries ={this.state.items}/>
+            </div>
+            
+            
+        );
     }
 }
  
