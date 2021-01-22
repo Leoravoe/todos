@@ -37,14 +37,14 @@ class Home extends Component {
     render() { 
         return ( 
             <div className="formforadding">
-            <form onSubmit={this.addItem}>
+            <form className="form" onSubmit={this.addItem}>
                 <input ref = {a =>{ this.input=a}}
                 type="text"/>
                 <button type="submit">
                     Add
                 </button>
-            </form>    
-                <List entries ={this.state.items} delete ={this.deleteItems}/>
+            </form>  
+            <List entries ={this.state.items} delete ={this.deleteItems}/>
             </div>
             
             
