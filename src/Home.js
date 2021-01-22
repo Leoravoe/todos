@@ -6,6 +6,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.addItem = this.addItem.bind(this);
+        this.deleteItems = this.deleteItems.bind(this);
         this.state = { 
             items: []
          }
@@ -23,9 +24,15 @@ class Home extends Component {
                     items: prevState.items.concat(newItem) 
                 };
             });
-            
+            this.input.value = ""
         }
         // console.log(this.state.items)
+    }
+    deleteItems(id){
+        const changedItems = this.state.items.filter(item =>{ return item.key !== id})
+        this.setState({
+            items : changedItems
+        })
     }
     render() { 
         return ( 
@@ -37,7 +44,7 @@ class Home extends Component {
                     Add
                 </button>
             </form>    
-                <List entries ={this.state.items}/>
+                <List entries ={this.state.items} delete ={this.deleteItems}/>
             </div>
             
             
